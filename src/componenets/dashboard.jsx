@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React, { lazy, Suspense, useContext } from "react";
 import { pateinData } from "./apiContext/data";
-import DataChart from "./dataChart";
+const DataChart = lazy(() => import("./dataChart"));
 
 const DashBoard = () => {
   const { ldata } = useContext(pateinData);
-  console.log(ldata);
-  const labTest = ldata.lab_results;
-  const diglist = ldata.diagnostic_list;
-  const dighr = ldata.diagnosis_history?.reverse();
+  // console.log(ldata);
+  const labTest = ldata?.lab_results;
+  const diglist = ldata?.diagnostic_list;
+  const dighr = ldata?.diagnosis_history?.reverse();
 
   const herartrate = dighr && dighr[0].heart_rate.value;
   const herartrateleve = dighr && dighr[0].heart_rate.levels;
@@ -23,7 +23,15 @@ const DashBoard = () => {
           <div className="reports_box">
             <h3>Diagnosis History </h3>
             <div className="chart card pt-4">
-              <DataChart />
+              <Suspense
+                fallback={
+                  <div className="text-center mx-5 my-5">
+                    Graph is Lodading...
+                  </div>
+                }
+              >
+                <DataChart />
+              </Suspense>
             </div>
             <div className="row text-center">
               <div className="col-md-4 my-3">
@@ -54,7 +62,7 @@ const DashBoard = () => {
           </div>
           <div className="col-md-12  card p-3">
             <h1>Diagnosis List </h1>
-            <table class="table">
+            <table className="table">
               <thead>
                 <tr>
                   <th scope="col">Name</th>
@@ -74,9 +82,9 @@ const DashBoard = () => {
                     );
                   })
                 ) : (
-                  <div className="col-md-12 my-5 card p-4 text-center">
-                    <span className="g">No Patient Selected</span>
-                  </div>
+                  <tr className="col-md-12 my-5 card p-4 text-center">
+                    <td className="g">No Patient Selected</td>
+                  </tr>
                 )}
               </tbody>
             </table>
@@ -204,6 +212,32 @@ const DashBoard = () => {
                 <span className="g">No Patient Selected</span>
               </div>
             )}
+          </div>
+          <div className="card p-3">
+            <b>Connect Me :- </b>
+            <p>
+              Portfolio .: <span className="red">Comming Soon . </span>
+            </p>
+            <p>
+              E-mail :{" "}
+              <a href="mailto:vsutar206@gmail.com">
+                <span className="green">vsutar206@gmail.com.</span>{" "}
+              </a>
+            </p>
+            <p>
+              Mobile No. : <span className="green"> +91 7972001963 .</span>{" "}
+            </p>
+            <p>
+              GitHub Profile . :{" "}
+              <a
+                href="https://github.com/VSUTAR206"
+                target={"_black"}
+                className="green"
+              >
+                {" "}
+                https://github.com/VSUTAR206 .
+              </a>{" "}
+            </p>
           </div>
         </div>
       </div>

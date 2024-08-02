@@ -68,7 +68,7 @@ const DataChart = () => {
           </select>
         </div>
         <div className="chart">
-          <Suspense fallback={<div className="text-center">LOading...</div>}>
+          <Suspense fallback={<div className="text-center mx-5 my-5" >Data is Lodading...</div>}>
             <Grafe userData={ldata} />
           </Suspense>
         </div>

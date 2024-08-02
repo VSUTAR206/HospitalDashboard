@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
 import { pateinData } from "./apiContext/data";
-import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const { pateints, setldata } = useContext(pateinData);
-  const navigate = useNavigate();
 
   const onclickHandler = (values) => {
     // navigate(`/pi/${values}`);
-    setldata(values);
+    pateinData? setldata(values) : null
   };
   return (
     <div className="col-md-3 sidebar">
@@ -24,7 +22,7 @@ const Sidebar = () => {
       <div className="lists px-2">
         <div className="">
           {pateints &&
-            pateints.map((data) => {
+            pateints?.map((data) => {
               return (
                 <div
                   key={data.name}
