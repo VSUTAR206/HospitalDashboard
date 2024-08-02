@@ -26,24 +26,27 @@ const DashBoard = () => {
             </div>
             <div className="row text-center">
               <div className="col-md-4 my-3">
-                <div className="card">
-                  <h5>Respiratory rate</h5>
-                  <span className="g">{herartrate}</span>
-                  <span className="g">{herartrateleve}</span>
+                <div className="card" style={{ background: "#E0F3FA" }}>
+                  <img src="respiratory rate.svg" alt="" className="herocard" />
+                  <p className="text-start mx-3"> Respiratory rate</p>
+                  <h3 className="g">{herartrate} bpm</h3>
+                  <p className="text-start mx-3">{herartrateleve}</p>
                 </div>
               </div>
               <div className="col-md-4 my-3">
-                <div className="card">
-                  <h5>Temperature</h5>
-                  <span className="f">{temprature}</span>
-                  <span className="f">{tempraturelevel}</span>
+                <div className="card" style={{ background: "#FFE6E9" }}>
+                  <img src="temperature.svg" alt="" className="herocard" />
+                  <p className="text-start mx-3">Temperature</p>
+                  <h3 className="f">{temprature} &#x2109;</h3>
+                  <p className="text-start mx-3">{tempraturelevel}</p>
                 </div>
               </div>
               <div className="col-md-4 my-3">
-                <div className="card">
-                  <h5>Heart rate</h5>
-                  <span className="g">{heart_rate}</span>
-                  <span className="g">{heart_ratelevels}</span>
+                <div className="card" style={{ background: "#FFE6F1" }}>
+                  <img src="HeartBPM.svg" alt="" className="herocard" />
+                  <p className="text-start mx-3">Heart rate</p>
+                  <h3 className="g">{heart_rate}bpm</h3>
+                  <p className="text-start mx-3">{heart_ratelevels}</p>
                 </div>
               </div>
             </div>
@@ -185,7 +188,12 @@ const DashBoard = () => {
                   >
                     <span>{i}</span>
                     <span>
-                      <div className="my-2 cursur-pointer"><img src="download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="" /></div>
+                      <div className="my-2 cursur-pointer">
+                        <img
+                          src="download_FILL0_wght300_GRAD0_opsz24 (1).svg"
+                          alt=""
+                        />
+                      </div>
                     </span>
                   </div>
                 );
