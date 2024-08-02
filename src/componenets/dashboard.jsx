@@ -4,6 +4,7 @@ import DataChart from "./dataChart";
 
 const DashBoard = () => {
   const { ldata } = useContext(pateinData);
+  console.log(ldata);
   const labTest = ldata.lab_results;
   const diglist = ldata.diagnostic_list;
   const dighr = ldata.diagnosis_history?.reverse();
@@ -12,13 +13,13 @@ const DashBoard = () => {
   const herartrateleve = dighr && dighr[0].heart_rate.levels;
   const temprature = dighr && dighr[0].temperature.value;
   const tempraturelevel = dighr && dighr[0].temperature.levels;
-  const heart_rate = dighr && dighr[0].heart_rate.value;
-  const heart_ratelevels = dighr && dighr[0].heart_rate.levels;
+  const respiratoryrateValue = dighr && dighr[0].respiratory_rate.value;
+  const respiratory_ratelevel = dighr && dighr[0].respiratory_rate.levels;
 
   return (
     <div className="col-md-9 dashboard">
       <div className="row">
-        <div className="col-md-8 b">
+        <div className="col-md-8 ">
           <div className="reports_box">
             <h3>Diagnosis History </h3>
             <div className="chart card pt-4">
@@ -29,8 +30,8 @@ const DashBoard = () => {
                 <div className="card" style={{ background: "#E0F3FA" }}>
                   <img src="respiratory rate.svg" alt="" className="herocard" />
                   <p className="text-start mx-3"> Respiratory rate</p>
-                  <h3 className="g">{herartrate} bpm</h3>
-                  <p className="text-start mx-3">{herartrateleve}</p>
+                  <h3 className="g">{respiratoryrateValue} bpm</h3>
+                  <p className="text-start mx-3">{respiratory_ratelevel}</p>
                 </div>
               </div>
               <div className="col-md-4 my-3">
@@ -45,13 +46,13 @@ const DashBoard = () => {
                 <div className="card" style={{ background: "#FFE6F1" }}>
                   <img src="HeartBPM.svg" alt="" className="herocard" />
                   <p className="text-start mx-3">Heart rate</p>
-                  <h3 className="g">{heart_rate}bpm</h3>
-                  <p className="text-start mx-3">{heart_ratelevels}</p>
+                  <h3 className="g">{herartrate}bpm</h3>
+                  <p className="text-start mx-3">{herartrateleve}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-md-12 b card p-3">
+          <div className="col-md-12  card p-3">
             <h1>Diagnosis List </h1>
             <table class="table">
               <thead>
@@ -81,7 +82,7 @@ const DashBoard = () => {
             </table>
           </div>
         </div>
-        <div className="col-md-4 b">
+        <div className="col-md-4 ">
           {Object.keys(ldata).length > 0 ? (
             <>
               <div className="col-md-12 card p-3 d-flex align-items-center justify-content-center ">
@@ -100,7 +101,7 @@ const DashBoard = () => {
                         style={{ height: "42px", width: "42px" }}
                       />
                     </div>
-                    <div className="wrapper">
+                    <div className="wrapper mx-3">
                       <b>Date Of Birth</b>
                       <br />
                       {ldata.date_of_birth}
@@ -114,7 +115,7 @@ const DashBoard = () => {
                         style={{ height: "42px", width: "42px" }}
                       />
                     </div>
-                    <div className="wrapper">
+                    <div className="wrapper mx-3">
                       <b>Gender</b>
                       <br />
 
@@ -129,7 +130,7 @@ const DashBoard = () => {
                         style={{ height: "42px", width: "42px" }}
                       />
                     </div>
-                    <div className="wrapper">
+                    <div className="wrapper mx-3">
                       <b>Contact info.</b>
                       <br />
 
@@ -144,7 +145,7 @@ const DashBoard = () => {
                         style={{ height: "42px", width: "42px" }}
                       />
                     </div>
-                    <div className="wrapper">
+                    <div className="wrapper mx-3">
                       <b>Emergency Contacts .</b>
                       <br />
 
@@ -159,7 +160,7 @@ const DashBoard = () => {
                         style={{ height: "42px", width: "42px" }}
                       />
                     </div>
-                    <div className="wrapper">
+                    <div className="wrapper mx-3">
                       <b>Insurance Provider .</b>
                       <br />
 
@@ -183,12 +184,12 @@ const DashBoard = () => {
               labTest?.map((i) => {
                 return (
                   <div
-                    className="d-flex justify-content-between align-item-center"
+                    className="d-flex justify-content-between align-item-center cp"
                     key={i}
                   >
                     <span>{i}</span>
-                    <span>
-                      <div className="my-2 cursur-pointer">
+                    <span className="cp px-3 ">
+                      <div className="my-2 cursur-pointer ">
                         <img
                           src="download_FILL0_wght300_GRAD0_opsz24 (1).svg"
                           alt=""

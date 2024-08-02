@@ -7,6 +7,10 @@
   height: 1195px;
 
 }
+
+.b{
+    border: 1px solid red;
+}
 .sidebar {
   height: 1195px;
   background: white;
@@ -80,4 +84,20 @@
     background: white;
     border-radius: 50%;
     margin: 16px;
+}
+
+.details{
+    text-align: left;
+}
+
+.cp{
+    cursor: pointer;
+}
+
+.cp:hover{
+    background: #D8FCF7;
+}
+.rdd{
+    border-radius: 10px;
+    padding: 0 5px ;
 }

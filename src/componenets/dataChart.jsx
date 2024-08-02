@@ -75,8 +75,8 @@ const DataChart = () => {
       </div>
       <div className="col-md-3">
         <div className="col-md-6">
-          <h5>Systolic</h5>
-          <span className="g">
+          <h5>Diastoli.</h5>
+          <span className="f">
             {disval ? disval : <p>No Patient Is Selected .</p>}
           </span>
           <br />
@@ -84,8 +84,8 @@ const DataChart = () => {
         </div>
         <hr />
         <div className="col-md-6">
-          <h5>Diastoli.</h5>
-          <span className="f">
+          <h5>Systolic.</h5>
+          <span className="g">
             {sysval ? sysval : <p>No Patient Is Selected .</p>}
           </span>
           <br />
